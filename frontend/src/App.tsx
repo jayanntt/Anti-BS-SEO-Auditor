@@ -155,24 +155,24 @@ function FindingsReport({ payload }: { payload: ScanFindings }) {
                 </article>
             </div>
 
-            <section className="glass-panel rounded-2xl p-8 shadow-xl">
-                <h3 className="text-2xl font-bold mb-6 border-b border-slate-800/80 pb-4">Critical Fixes (Do These Now)</h3>
-                <div className="flex flex-col gap-5">
+            <section className="glass-panel rounded-2xl p-6 md:p-8 shadow-xl max-w-full overflow-hidden">
+                <h3 className="text-2xl font-bold mb-6 border-b border-white/10 pb-4">Critical Fixes (Do These Now)</h3>
+                <div className="flex flex-col gap-6 w-full">
                      {payload.action_items?.map((task, idx) => (
-                         <div key={idx} className="flex flex-col md:flex-row gap-5 p-5 rounded-xl bg-slate-900/40 hover:bg-slate-900/70 transition-colors border border-slate-800/60 shadow-inner">
+                         <div key={idx} className="flex flex-col md:flex-row gap-6 p-6 rounded-xl bg-slate-900/40 hover:bg-slate-900/70 transition-colors border border-white/10 shadow-inner w-full overflow-hidden">
                              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-900/30 text-indigo-400 font-black shrink-0 border border-indigo-500/20">
                                  {task.priority}
                              </div>
                              
-                             <div className="flex flex-col gap-3 flex-1">
-                                 <header className="flex items-center gap-3">
-                                     <span className="text-xs font-bold uppercase tracking-widest bg-slate-950 px-3 py-1.5 rounded text-slate-300 shadow-sm border border-slate-800">{task.category}</span>
+                             <div className="flex flex-col gap-4 flex-1 min-w-0">
+                                 <header className="flex flex-wrap items-center gap-3">
+                                     <span className="text-xs font-bold uppercase tracking-widest bg-slate-950 px-3 py-1.5 rounded-lg text-slate-300 shadow-sm border border-slate-800">{task.category}</span>
                                      <span className="text-sm text-slate-500 font-medium">Impact <span className="text-slate-200">{task.estimated_impact}</span></span>
                                  </header>
-                                 <h4 className="font-bold text-xl text-slate-100">{task.issue}</h4>
-                                 <figure className="m-0 mt-2 rounded-xl overflow-hidden shadow-2xl border border-slate-800/50">
+                                 <h4 className="font-bold text-xl text-slate-100 leading-relaxed">{task.issue}</h4>
+                                 <figure className="m-0 mt-2 rounded-xl overflow-hidden shadow-2xl border border-white/10 w-full">
                                      <figcaption className="sr-only">Recommended Fix Snippet</figcaption>
-                                     <pre className="bg-black/80 p-5 font-mono text-sm overflow-x-auto text-emerald-400/90 leading-relaxed">
+                                     <pre className="bg-black/80 p-6 font-mono text-sm whitespace-pre-wrap break-words text-emerald-400 leading-relaxed w-full">
                                          {task.fix}
                                      </pre>
                                  </figure>
